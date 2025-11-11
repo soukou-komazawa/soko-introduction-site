@@ -1,4 +1,5 @@
-/* homepage.module.css の完全なコード */
+/* homepage.module.css (洗練化バージョン) */
+
 .mainContent {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,16 +8,33 @@
 
 /* --- コンテンツセクション --- */
 .section {
-  margin-bottom: 4rem;
-  padding: 2rem 0;
+  /* ▼▼▼ 余白を調整 ▼▼▼ */
+  margin-bottom: 3rem; /* 詰めすぎていたマージンを少し調整 */
+  padding: 3rem 0; /* 上下の余白を増やして「呼吸」させる */
   text-align: center;
 }
 
 .sectionTitle {
   font-family: var(--font-heading);
   font-size: 2.8rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
+  position: relative; /* 下線のために追加 */
+  display: inline-block; /* 下線の幅をテキストに合わせる */
+  padding-bottom: 0.75rem;
+}
+
+/* ▼▼▼ タイトルの下線（装飾）を追加 ▼▼▼ */
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px; /* 線の長さ */
+  height: 3px; /* 線の太さ */
+  background-color: var(--color-accent-gold); /* アクセント色 */
+  border-radius: 2px;
 }
 
 .sectionText {
@@ -25,9 +43,10 @@
   color: var(--color-subtext);
   max-width: 720px;
   margin: 0 auto 2.5rem;
+  white-space: pre-line; /* 改行を反映 */
 }
 
-/* --- カード（不足していたCSS） --- */
+/* --- カード --- */
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -39,7 +58,7 @@
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 2rem; /* カード内の余白も少し増やす */
   height: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -51,11 +70,23 @@
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
-.card h3 {
+.card h3, .card h4 {
   margin-top: 0;
+  font-family: var(--font-heading);
 }
 
-/* --- リンク（不足していたCSS） --- */
+/* ▼▼▼ カード内のリストのスタイルを調整 ▼▼▼ */
+.card ul {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+  color: var(--color-subtext);
+}
+.card ul li {
+  margin-bottom: 0.5rem;
+}
+
+
+/* --- リンク --- */
 .ctaLink {
   font-weight: bold;
   text-decoration: none;
@@ -76,9 +107,76 @@
   right: -0.8em;
 }
 
+/* --- チェックリスト --- */
+.checkList {
+  list-style-type: none; /* デフォルトの点を消す */
+  padding-left: 0;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+.checkList li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  position: relative; /* アイコンの位置基準 */
+  padding-left: 2.2rem; /* アイコン用のスペース */
+}
+/* ▼▼▼ チェックマークをCSSで描画 ▼▼▼ */
+.checkList li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-primary-green);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+
 /* --- スマホ向けレスポンシブ対応 --- */
 @media (max-width: 900px) {
   .sectionTitle {
     font-size: 2.2rem;
   }
+}
+
+/* ▼▼▼ 追記：スタイリッシュな画像ギャラリー ▼▼▼ */
+.galleryGrid {
+  /* * 注：この 'masonry' はまだ一部のブラウザでしか対応していません。
+   * もしレイアウトが崩れる場合は、 'grid-template-columns' に戻します。
+   * ただし、最新のブラウザでは非常にスタイリッシュに動作します。
+   */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: 200px; /* 必要に応じて調整 */
+  gap: 1rem;
+  
+  /* シンプルなCSS Grid フォールバック (masonryが効かない場合) */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+@supports (grid-template-rows: masonry) {
+  .galleryGrid {
+    grid-template-rows: masonry; /* 石積みレイアウトを有効化 */
+  }
+}
+
+.galleryItem {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画像の比率を保ったままトリミング */
+  display: block;
+}
+.galleryItem:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }

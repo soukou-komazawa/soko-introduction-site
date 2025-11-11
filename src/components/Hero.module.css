@@ -1,14 +1,20 @@
-/* Hero.module.css の完全なコード */
+/* Hero.module.css (ズレ修正版) */
 .heroContainer {
-  position: relative; /* z-index の基準点 */
+  position: relative;
   width: 100%;
-  height: 60vh; /* 画面の高さの60% */
+  height: 60vh;
   min-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* はみ出したアニメーションを隠す */
-  background-color: var(--color-background); /* アニメーションが読み込まれるまでの背景色 */
+  overflow: hidden;
+  
+  /* ▼▼▼ デザイン洗練 ▼▼▼ */
+  background-color: var(--color-background); /* 基本背景色 */
+  background-image: 
+    linear-gradient(to top, rgba(248, 246, 242, 0.8), rgba(248, 246, 242, 0)), /* 下から上へのグラデーション */
+    url('/paper-texture.png'); /* 紙のテクスチャ */
+  background-blend-mode: multiply; /* グラデーションとテクスチャを重ねる */
 }
 
 .heroAnimation {
@@ -17,24 +23,45 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* ★ 背後に配置 */
+  z-index: 1;
 }
 
 .heroContent {
   position: relative;
-  z-index: 2; /* ★ 手前に配置 */
+  z-index: 2;
   text-align: center;
-  padding: 2rem;
-  background-color: rgba(248, 246, 242, 0.7); /* テキストの背景を少し白くして読みやすくする */
+  background-color: rgba(248, 246, 242, 0.7);
   backdrop-filter: blur(4px);
   border-radius: 12px;
-  max-width: 80%;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+  /* ▼▼▼ ズレ修正 ▼▼▼ */
+  width: 100%; /* 横幅いっぱいに広げる */
+  max-width: 1200px; /* Containerコンポーネントの最大幅と合わせる */
+  margin-left: auto;
+  margin-right: auto;
+  /* Containerコンポーネントの左右余白と合わせる */
+  padding: 2rem; /* 上下の余白 */
+  box-sizing: border-box; /* paddingを含めて最大幅を計算 */
 }
+
+/* 左右の余白をContainerと合わせるため、メディアクエリを追加 */
+@media (min-width: 1248px) { /* 1200px + 2rem*2 */
+  .heroContent {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 1.5rem; /* スマホでは余白を少し詰める */
+  }
+}
+
 
 .heroTitle {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6vw, 4.5rem); /* 画面サイズに応じて可変 */
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   margin: 0 0 1rem;
   line-height: 1.2;
   color: var(--color-text);
@@ -42,8 +69,10 @@
 }
 
 .heroSubtitle {
-  font-size: clamp(1rem, 2.5vw, 1.25rem); /* 画面サイズに応じて可変 */
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: var(--color-subtext);
   margin: 0;
   max-width: 600px;
+  margin-left: auto; /* サブタイトル自体も中央に */
+  margin-right: auto;
 }
