@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
-import Button from "./Button"; // ★ Buttonコンポーネントをインポート
+import Button from "./Button";
 
 export default function Header() {
   return (
@@ -18,13 +18,11 @@ export default function Header() {
         <span className={styles.logoTitle}>文芸サークル 草行</span>
       </Link>
       <nav className={styles.nav}>
-        <Link href="/" className={styles.navLink}>トップ</Link>
-        <Link href="/about" className={styles.navLink}>私たちについて</Link>
-        <Link href="/activities" className={styles.navLink}>活動内容</Link>
-        <Link href="/policy" className={styles.navLink}>合評会ポリシー</Link>
+        <Link href="/#philosophy" className={styles.navLink}>草行とは</Link>
+        <Link href="/#activities" className={styles.navLink}>活動内容</Link>
+        <Link href="/#qa" className={styles.navLink}>Q&A</Link>
         
-        {/* ★ ここを <Link> から <Button> コンポーネントに変更 */}
-        <Button href="/join" variant="primary">
+        <Button href="/#join" variant="primary">
           参加する
         </Button>
       </nav>

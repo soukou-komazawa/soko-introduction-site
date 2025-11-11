@@ -139,3 +139,18 @@ a.secondary {
     --button-secondary-border: #1a1a1a;
   }
 }
+/* --- 追記：チェックリスト用スタイル --- */
+.checkList {
+  list-style-type: '✔ '; /* ✔ の後にスペース */
+  padding-left: 1.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+.checkList li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  padding-left: 0.5rem;
+  margin-bottom: 0.75rem;
+}
