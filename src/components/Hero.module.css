@@ -1,0 +1,49 @@
+/* Hero.module.css の完全なコード */
+.heroContainer {
+  position: relative; /* z-index の基準点 */
+  width: 100%;
+  height: 60vh; /* 画面の高さの60% */
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* はみ出したアニメーションを隠す */
+  background-color: var(--color-background); /* アニメーションが読み込まれるまでの背景色 */
+}
+
+.heroAnimation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* ★ 背後に配置 */
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2; /* ★ 手前に配置 */
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(248, 246, 242, 0.7); /* テキストの背景を少し白くして読みやすくする */
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  max-width: 80%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* 画面サイズに応じて可変 */
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  color: var(--color-text);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem); /* 画面サイズに応じて可変 */
+  color: var(--color-subtext);
+  margin: 0;
+  max-width: 600px;
+}

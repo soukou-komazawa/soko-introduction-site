@@ -1,0 +1,61 @@
+/* globals.css の完全なコード */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* layout.tsx から渡されたCSS変数を使って、フォントを定義します */
+  --font-heading: var(--font-noto-serif), serif; /* 見出し用 (しっぽり明朝) */
+  --font-body: var(--font-noto-sans), sans-serif; /* 本文用 (Noto Sans) */
+
+  /* カラーパレット */
+  --color-primary-green: #4A6E47;
+  --color-accent-gold: #B8860B;
+  --color-background: #F8F6F2;
+  --color-text: #3a2e20;
+  --color-subtext: #706659;
+  --color-border: #e0d8c8;
+}
+
+/* 構文エラーを修正した body セレクタ */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body); /* 本文フォントを適用 */
+  background-image: url('/paper-texture.png'); /* 背景テクスチャ */
+  margin: 0;
+  padding: 0;
+}
+
+/* 見出しの基本フォントを設定 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); /* 見出しフォントを適用 */
+}
+
+/* リンクの基本スタイル */
+a {
+  color: var(--color-primary-green);
+  transition: color 0.2s ease-in-out;
+  text-decoration: none; /* 下線をデフォルトで消す */
+}
+a:hover {
+  color: var(--color-accent-gold);
+}
+
+/* --- Custom Scrollbar Styles --- */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-green);
+  border-radius: 20px;
+  border: 3px solid var(--color-background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5E8C7F;
+}

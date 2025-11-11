@@ -1,0 +1,39 @@
+/* about.module.css */
+
+.detailText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 1.5rem auto;
+  text-align: left;
+  white-space: pre-line; /* 改行をそのまま反映させる */
+}
+
+.subTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: 0;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.list li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.list li strong {
+  color: var(--color-primary-dark);
+}

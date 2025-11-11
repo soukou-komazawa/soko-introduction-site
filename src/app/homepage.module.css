@@ -1,0 +1,84 @@
+/* homepage.module.css の完全なコード */
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+/* --- コンテンツセクション --- */
+.section {
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-subtext);
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+/* --- カード（不足していたCSS） --- */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.card h3 {
+  margin-top: 0;
+}
+
+/* --- リンク（不足していたCSS） --- */
+.ctaLink {
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  color: var(--color-primary-green);
+  font-size: 1.1rem;
+}
+.ctaLink::after {
+  content: '→';
+  position: absolute;
+  opacity: 0;
+  right: -1.2em;
+  transition: all 0.2s ease;
+}
+.ctaLink:hover::after {
+  opacity: 1;
+  right: -0.8em;
+}
+
+/* --- スマホ向けレスポンシブ対応 --- */
+@media (max-width: 900px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+}

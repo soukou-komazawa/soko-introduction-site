@@ -1,0 +1,73 @@
+/* Header.module.css の完全なコード */
+.header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(248, 246, 242, 0.8); /* 背景色に少し透明度を持たせる */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logoTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-subtext);
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+}
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-green);
+  transition: width 0.3s ease;
+}
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* スマホ対応（ハンバーガーメニューは未実装のため、横スクロールで対応） */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+  .logoTitle {
+    font-size: 1.25rem;
+  }
+  .nav {
+    gap: 1rem;
+    overflow-x: auto; /* リンクが多い場合はスクロール */
+  }
+  .navLink {
+    font-size: 0.9rem;
+  }
+}
