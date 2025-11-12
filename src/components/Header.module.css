@@ -1,8 +1,8 @@
-/* Header.module.css の完全なコード (スマホ対応版) */
+/* Header.module.css の完全なコード (スマホ版スリムヘッダー対応) */
 .header {
   width: 100%;
   padding: 1rem 2rem;
-  background-color: rgba(248, 246, 242, 0.8); /* 背景色に少し透明度を持たせる */
+  background-color: rgba(248, 246, 242, 0.8);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
   display: flex;
@@ -25,6 +25,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text);
+  transition: all 0.3s ease; /* スムーズな表示/非表示のため */
 }
 
 .nav {
@@ -40,6 +41,7 @@
   text-decoration: none;
   position: relative;
   padding: 0.5rem 0;
+  white-space: nowrap; /* リンクが改行しないように */
 }
 .navLink::after {
   content: '';
@@ -55,34 +57,36 @@
   width: 100%;
 }
 
-/* ▼▼▼ スマホ対応修正 ▼▼▼ */
+/* ▼▼▼ スマホ対応修正 (横一列スリム版) ▼▼▼ */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column; /* ★ ロゴとナビを縦積みに変更 */
-    align-items: center;  /* 全体を中央揃えに */
-    padding: 1rem;
-    gap: 1rem; /* ロゴとナビの間の隙間 */
+    /* 縦積みをやめて横一列に戻す */
+    flex-direction: row; 
+    align-items: center;
+    padding: 0.5rem 1rem; /* ヘッダーの高さを低くする */
+    gap: 1rem;
   }
 
   .logoLink {
-    justify-content: center; /* ロゴ自体を中央に */
-    width: 100%;
+    /* ロゴは中央揃えにしない */
+    justify-content: flex-start;
+    width: auto; /* 幅を自動に */
   }
 
   .logoTitle {
-    font-size: 1.25rem;
+    display: none; /* ★ ロゴの文字を非表示にして幅を節約 */
   }
 
   .nav {
-    width: 100%; /* ナビゲーションエリアを画面幅いっぱいに */
-    gap: 1rem;
-    overflow-x: auto; /* ★ ナビ項目が多い場合は、ここがスクロールする */
-    justify-content: center; /* ナビ項目を中央揃え（スクロールしない場合） */
-    padding-bottom: 0.5rem; /* スクロールバー用の余白 */
+    width: auto; /* 幅を自動に */
+    flex-grow: 1; /* ★ 残りのスペースをナビが全部使う */
+    gap: 1.25rem; /* リンク間の隙間を少し広げる */
+    overflow-x: auto; /* ★ ナビ項目がはみ出たら、ここだけ横スクロール */
+    justify-content: flex-end; /* ★ リンクを右端から配置 */
+    padding-bottom: 0; /* スクロールバー用の余白を削除 */
   }
 
   .navLink {
     font-size: 0.9rem;
-    white-space: nowrap; /* リンクが改行しないように */
   }
 }
