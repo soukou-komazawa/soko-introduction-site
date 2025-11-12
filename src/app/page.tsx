@@ -153,7 +153,7 @@ export default function Home() {
         </FadeInSection>
 
         {/* 5. 活動の風景 */}
-        <FadeInSection>
+<FadeInSection>
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>活動の風景</h2>
             <p className={styles.sectionText}>
@@ -161,31 +161,31 @@ export default function Home() {
             </p>
             <div className={styles.galleryGrid}>
               {/* ★★★
-                publicフォルダに画像（例: g1.jpg）を置き、
-                src="/g1.jpg" のように書き換えてください。
+                /400x300 などを削除しました。
+                publicフォルダ に g1.jpg, g2.jpg ... g6.jpg の
+                名前で画像が保存されているか、ご確認ください。
               ★★★ */}
               <div className={styles.galleryItem}>
-                <img src="/g6.jpg/400x300" alt="新歓の風景" />
+                <img src="/g6.jpg" alt="新歓の風景" />
               </div>
               <div className={styles.galleryItem}>
-                <img src="/g1.jpg/400x300" alt="定例会の風景" />
+                <img src="/g1.jpg" alt="定例会の風景" />
               </div>
               <div className={styles.galleryItem}>
-                <img src="/g2.jpg/400x500" alt="定例会の風景２" />
+                <img src="/g2.jpg" alt="定例会の風景２" />
               </div>
               <div className={styles.galleryItem}>
-                <img src="/g3.jpg/400x350" alt="オータムフェスティバルの風景" />
+                <img src="/g3.jpg" alt="オータムフェスティバルの風景" />
               </div>             
               <div className={styles.galleryItem}>
-                <img src="/g5.jpg/400x350" alt="オータムフェスティバルの風景２" />
+                <img src="/g5.jpg" alt="オータムフェスティバルの風景２" />
               </div>
               <div className={styles.galleryItem}>
-                <img src="/g4.jpg/400x400" alt="部誌の参考画像" />
+                <img src="/g4.jpg" alt="部誌の参考画像" />
               </div>
             </div>
           </section>
         </FadeInSection>
-
         {/* 6. 「草行」の歩幅 */}
         <FadeInSection>
           <section className={styles.section}>

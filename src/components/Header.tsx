@@ -10,7 +10,7 @@ export default function Header() {
     <header className={styles.header}>
       <Link href="/" className={styles.logoLink}>
         <Image
-          src="/soko-icon.png"
+          src="/soko-icon.png" //
           alt="草行 ロゴ"
           width={50}
           height={50}
@@ -22,6 +22,12 @@ export default function Header() {
         <Link href="/#activities" className={styles.navLink}>活動内容</Link>
         <Link href="/#qa" className={styles.navLink}>Q&A</Link>
         
+        {/* ▼▼▼ 追加 ▼▼▼ */}
+        <Link href="/#connect" className={styles.navLink}>
+          SNS
+        </Link>
+        {/* ▲▲▲ ここまで ▲▲▲ */}
+
         <Button href="/#join" variant="primary">
           参加する
         </Button>
