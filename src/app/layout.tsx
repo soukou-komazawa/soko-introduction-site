@@ -7,7 +7,7 @@ import { notoSans, shipporiMincho } from "@/theme/fonts";
 
 export const metadata: Metadata = {
   title: "文芸サークル 草行",
-  description: "文学を本気で楽しむ。オンライン上の部室、文芸サークル「草行」の紹介サイトです。",
+  description: "あなたが作る。忘れられない一文。駒澤大学公認サークル　文芸サークル「草行」の紹介サイトです。",
   
   // ▼▼▼ この1行がスマホ対応の「おまじない」です ▼▼▼
   viewport: "width=device-width, initial-scale=1",

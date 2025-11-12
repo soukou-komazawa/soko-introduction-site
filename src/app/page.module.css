@@ -154,3 +154,14 @@ a.secondary {
   padding-left: 0.5rem;
   margin-bottom: 0.75rem;
 }
+
+/* ▼▼▼ 追記：説明文用のカード背景 ▼▼▼ */
+.textCard {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2.5rem; /* 内側の余白をしっかり取る */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left; /* 長い文章は左揃えが読みやすい */
+  margin-top: 2rem;
+}

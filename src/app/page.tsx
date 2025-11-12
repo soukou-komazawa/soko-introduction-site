@@ -45,9 +45,10 @@ export default function Home() {
 
         {/* 2. 「草行」という名に込めた想い */}
         <FadeInSection>
-          <section id="philosophy" className={styles.section}>
+<section id="philosophy" className={styles.section}>
             <h2 className={styles.sectionTitle}>「草行」という名に込めた想い</h2>
-            <p className={styles.sectionText}>
+            {/* ▼▼▼ クラス名を変更（2つのスタイルを適用） ▼▼▼ */}
+            <p className={`${styles.sectionText} ${styles.textCard}`}>
               私たちのサークル名「草行」は、四字熟語『草行露宿（そうこうろじゅく）』に由来します。
               草を掻き分け、時には野宿をせざるを得ない大変な道のり。
               創作とは、時に困難と向き合い、先行きが見えない“道なき道”を行くようなものです。

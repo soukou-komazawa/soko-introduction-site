@@ -1,4 +1,4 @@
-/* Header.module.css の完全なコード */
+/* Header.module.css の完全なコード (スマホ対応版) */
 .header {
   width: 100%;
   padding: 1rem 2rem;
@@ -55,19 +55,34 @@
   width: 100%;
 }
 
-/* スマホ対応（ハンバーガーメニューは未実装のため、横スクロールで対応） */
+/* ▼▼▼ スマホ対応修正 ▼▼▼ */
 @media (max-width: 768px) {
   .header {
-    padding: 0.75rem 1rem;
+    flex-direction: column; /* ★ ロゴとナビを縦積みに変更 */
+    align-items: center;  /* 全体を中央揃えに */
+    padding: 1rem;
+    gap: 1rem; /* ロゴとナビの間の隙間 */
   }
+
+  .logoLink {
+    justify-content: center; /* ロゴ自体を中央に */
+    width: 100%;
+  }
+
   .logoTitle {
     font-size: 1.25rem;
   }
+
   .nav {
+    width: 100%; /* ナビゲーションエリアを画面幅いっぱいに */
     gap: 1rem;
-    overflow-x: auto; /* リンクが多い場合はスクロール */
+    overflow-x: auto; /* ★ ナビ項目が多い場合は、ここがスクロールする */
+    justify-content: center; /* ナビ項目を中央揃え（スクロールしない場合） */
+    padding-bottom: 0.5rem; /* スクロールバー用の余白 */
   }
+
   .navLink {
     font-size: 0.9rem;
+    white-space: nowrap; /* リンクが改行しないように */
   }
 }
