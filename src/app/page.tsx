@@ -3,7 +3,34 @@ import Container from "@/components/Container";
 import styles from "./homepage.module.css";
 import Button from "@/components/Button";
 import Accordion from "@/components/Accordion";
-import FadeInSection from "@/components/FadeInSection"; // ★ フェードインコンポーネントをインポート
+import FadeInSection from "@/components/FadeInSection"; // ★ フェードインコンポーネント
+import { FaXTwitter, FaInstagram, FaLine } from 'react-icons/fa6'; // ★ SNSアイコン
+
+// page.tsx の上部
+
+// ★★★
+// CSSで使うための className を追加
+// ★★★
+const socialLinks = [
+  { 
+    name: 'X (Twitter)', 
+    url: 'https://x.com/soukou_0127', 
+    icon: <FaXTwitter />,
+    className: styles.socialTwitter // ★ 追加
+  },
+  { 
+    name: 'Instagram', 
+    url: 'https://www.instagram.com/soukou.0127/?igsh=eG9uajIxZGZqczZr', 
+    icon: <FaInstagram />,
+    className: styles.socialInstagram // ★ 追加
+  },
+  { 
+    name: 'Line', 
+    url: 'https://line.me/R/ti/p/@355qjxhp?ts=02272256&oat_content=url', 
+    icon: <FaLine />,
+    className: styles.socialLine // ★ 追加
+  },
+];
 
 export default function Home() {
   return (
@@ -39,7 +66,7 @@ export default function Home() {
             <div className={styles.cardGrid}>
               <div className={styles.card}>
                 <h3>✒️ 創作（アウトプット）</h3>
-                <p>あなたの頭の中で蠢いている物語、詩、エッセイをあなたが形にします。</p>
+                <p>あなたの頭の中で蠢いている物語、詩、エッセイをあなたの手で形にします。</p>
               </div>
               <div className={styles.card}>
                 <h3>💡 インプット（読書・交流）</h3>
@@ -70,47 +97,96 @@ export default function Home() {
                 </ul>
               </div>
               <div className={styles.card}>
-                <h3>2. 年2回のメインプロジェクト</h3>
+                <h3>2. メインプロジェクト</h3>
                 <ul>
-                  <li><strong>部誌の制作:</strong> 夏と冬に部誌を制作し、作品を紙媒体として残します。</li>
+                  <li><strong>部誌の制作:</strong> 夏と冬に部誌を制作し、普段の集大成として作品を紙媒体として残します。</li>
                   <li><strong>文学フフリマへの出展:</strong> 完成した部誌を「文学フリマ」で販売します！</li>
-                  <li><strong>オータムフェスティバルへの出展:</strong> 学園祭でブックカフェなどの模擬店を出店します。</li>
+                  <li><strong>オータムフェスティバルへの出展:</strong> 学園祭で制作した部誌を基に、ブックカフェをコンセプトとした模擬店を出店します。</li>
                 </ul>
               </div>
             </div>
+
+            {/* ▼▼▼ 挿入：年間スケジュール ▼▼▼ */}
+            <h3 className={styles.sectionTitle} style={{ fontSize: '2.2rem', marginTop: '4rem', marginBottom: '3rem' }}>
+              年間スケジュール 
+            </h3>
+            <div className={styles.timeline}>
+              <div className={styles.timelineItem}>
+                <div className={styles.timelineDate}>4月</div>
+                <div className={styles.timelineContent}>
+                  <strong>新歓期・新メンバー歓迎会</strong>
+                  <p>読書会や自己紹介、創作にまつわるミニゲームを通して親睦を深めます</p>
+                </div>
+              </div>
+              <div className={styles.timelineItem}>
+                <div className={styles.timelineDate}>5月〜7月</div>
+                <div className={styles.timelineContent}>
+                  <strong>夏号部誌 制作期間</strong>
+                  <p>テーマ決め、執筆、合評会、デザイン、入稿までを行います。</p>
+                </div>
+              </div>
+              <div className={styles.timelineItem}>
+                <div className={styles.timelineDate}>8月</div>
+                <div className={styles.timelineContent}>
+                  <strong>夏休み</strong>
+                  <p>夏季休暇の時間を使って、課外活動や文学にまつわる企画を実施する</p>
+                </div>
+              </div>
+              <div className={styles.timelineItem}>
+                <div className={styles.timelineDate}>11月</div>
+                <div className={styles.timelineContent}>
+                  <strong>オータムフェスティバル</strong>
+                  <p>学園祭にてブックカフェや部誌の販売を行います。</p>
+                </div>
+              </div>
+              <div className={styles.timelineItem}>
+                <div className={styles.timelineDate}>12月〜1月</div>
+                <div className={styles.timelineContent}>
+                  <strong>冬号部誌 制作期間</strong>
+                  <p>合評会を中心に、冬の作品を仕上げます。</p>
+                </div>
+              </div>
+            </div>
+            {/* ▲▲▲ 年間スケジュール 挿入完了 ▲▲▲ */}
+
           </section>
         </FadeInSection>
 
+        {/* 5. 活動の風景 */}
         <FadeInSection>
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>活動の風景</h2>
             <p className={styles.sectionText}>
-              文学フリマへの出展、学園祭でのブックカフェ、日々の読書会など、活動の様子です。
+              学園祭でのブックカフェ、日々の定例会など、活動の様子です。
             </p>
             <div className={styles.galleryGrid}>
-              {/* ★ここに写真を追加します★
-                publicフォルダに画像（例: g1.jpg, g2.jpg ...）を置き、
-                <div className={styles.galleryItem}><img src="/g1.jpg" alt="文学フリマの様子" /></div>
-                のように追加していきます。
-                （スタイリッシュに見せるため、高さがバラバラの画像を使うのがおすすめです）
-              */}
+              {/* ★★★
+                publicフォルダに画像（例: g1.jpg）を置き、
+                src="/g1.jpg" のように書き換えてください。
+              ★★★ */}
               <div className={styles.galleryItem}>
-                <img src="https://via.placeholder.com/400x300" alt="活動風景1（サンプル）" />
+                <img src="/g6.jpg/400x300" alt="新歓の風景" />
               </div>
               <div className={styles.galleryItem}>
-                <img src="https://via.placeholder.com/400x500" alt="活動風景2（サンプル・縦長）" />
+                <img src="/g1.jpg/400x300" alt="定例会の風景" />
               </div>
               <div className={styles.galleryItem}>
-                <img src="https://via.placeholder.com/400x350" alt="活動風景3（サンプル）" />
+                <img src="/g2.jpg/400x500" alt="定例会の風景２" />
               </div>
               <div className={styles.galleryItem}>
-                <img src="https://via.placeholder.com/400x400" alt="活動風景4（サンプル）" />
+                <img src="/g3.jpg/400x350" alt="オータムフェスティバルの風景" />
+              </div>             
+              <div className={styles.galleryItem}>
+                <img src="/g5.jpg/400x350" alt="オータムフェスティバルの風景２" />
+              </div>
+              <div className={styles.galleryItem}>
+                <img src="/g4.jpg/400x400" alt="部誌の参考画像" />
               </div>
             </div>
           </section>
         </FadeInSection>
 
-        {/* 5. 「草行」の歩幅 */}
+        {/* 6. 「草行」の歩幅 */}
         <FadeInSection>
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>✨ 「草行」の歩幅</h2>
@@ -134,7 +210,7 @@ export default function Home() {
           </section>
         </FadeInSection>
         
-        {/* 6. こんな人におすすめ */}
+        {/* 7. こんな人におすすめ */}
         <FadeInSection>
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>こんな人におすすめ</h2>
@@ -148,57 +224,49 @@ export default function Home() {
           </section>
         </FadeInSection>
 
-        {/* 7. よくある質問 (Q&A) */}
+        {/* 8. よくある質問 (Q&A) */}
         <FadeInSection>
           <section id="qa" className={styles.section}>
             <h2 className={styles.sectionTitle}>よくある質問 (Q&A)</h2>
             
-            <Accordion title="Q. 駒澤大学の学生以外でも入れますか？">
-              【回答例】:
-              はい、「草行」は駒澤大学の学生を中心に活動していますが、他大学の学生（インカレ）や、文学を愛する社会人・専門学生の方も歓迎しています。お気軽にご相談ください！
-              （または）
-              「草行」は駒澤大学の公認サークル（または届出団体）であるため、現在のメンバーは駒澤大学の学生のみで構成されています。
-            </Accordion>
-            
             <Accordion title="Q. 1年生（または3年生）ですが、いつからでも入れますか？">
-              はい、通年で新メンバーを募集しています。学部・学科・学年、そして入会時期は一切問いません。「書きたい」「読みたい」と思ったその瞬間が、一番の入会タイミングです！
+              はい、通年で新メンバーを募集しています。学部・学科・学年、そして入会時期は一切問いません。「書きたい」「読みたい」と思ったら、ぜひ私たちの活動に体験してみてください
             </Accordion>
             
+            <Accordion title="Q. 駒澤大学の学生以外でも入れますか？">
+              「草行」は駒澤大学の公認サークルであるため、現在のメンバーは駒澤大学の学生のみで構成されています。
+            </Accordion>
+
             <Accordion title="Q. 活動はいつ、どこで行っていますか？">
-              【回答例】:
-              日時: 隔週の土曜日 13:00〜15:00
-              場所: 駒澤大学 駒沢キャンパス 〇〇号館の教室（または図書館会議室）
-              オンライン: 上記の対面活動に加え、Discordサーバー上で随時、オンラインでの読書会、雑談会、作業会などを開催しています。
+              活動日程は毎年変わります。
+              多くの方に参加していただきたいので、アンケートで日程を決定しています。
+              場所に関しては、駒澤大学図書館を使用させていただいています。
             </Accordion>
             
             <Accordion title="Q. 会費はかかりますか？">
-              【回答例】:
-              はい、部誌の印刷費、文学フリマや学園祭の出展料に充てるため、会費を徴収しています。
-              （例1：年間 〇〇円）
-              （例2：部誌を制作する半期ごとに 〇〇円）
-              集めた費用は「会計」担当が責任を持って管理し、収支は全メンバーに透明に公開しています。
+              はい、部誌の印刷費、文学フリマや学園祭の出展料に充てるため、年間500円の会費を徴収しています。
+              また、集めた費用は「会計」担当が責任を持って管理し、収支は全メンバーに透明に公開しています。
             </Accordion>
             
             <Accordion title="Q. 合評会（批評）が不安です。厳しく批判されたりしませんか？">
-              その不安、とてもよく分かります。だからこそ「草行」では、紹介文にもある通り「安全な場所」であるためのグランドルールを徹底しています。
+              「草行」では、合評会のグランドルールを徹底しています。
               目的は「作品を良くするため」であり、人格攻撃は絶対にありません。「この表現、私はすごく好きです」「もしこうしたら、私はもっと感動するかも」といった、「私（I-message）」を主語にした建設的な「提案」を交換する場です。
             </Accordion>
             
             <Accordion title="Q. 小説や詩をきちんと書いたことがありません…。">
-              心から歓迎します！「草行」は「書く」だけでなく「読む」ことも同じくらい大切にしています。
-              まずは「インプット・交流会」で好きな本の話をするだけでも、立派なサークル活動です。「書きたい」という気持ちさえあれば、メンバーが全力でサポートします！
+              歓迎します！「草行」は「書く」だけでなく「読む」ことも同じくらい大切にしています。
+              「インプット・交流会」で自分の言葉を駆使して、好きな話をするだけでも、立派なサークル活動です。
+              「書きたい」という気持ちさえあれば、メンバーが全力でサポートします！
             </Accordion>
 
             <Accordion title="Q. 見学・入会について連絡先を教えてください">
-              【回答例】:
               ご質問、見学・入会のお申し込みは、以下の連絡先までお願いします。
-              （例：公式X（旧Twitter）のDM [ここにXのリンクを貼る]、またはメールアドレス [ここにメールアドレスを記載]）
             </Accordion>
 
           </section>
         </FadeInSection>
 
-        {/* 8. 最後の行動喚起 */}
+        {/* 9. 最後の行動喚起 */}
         <FadeInSection>
           <section id="join" className={styles.section}>
             <h2 className={styles.sectionTitle}>“道なき道”を、私たちと一緒に歩んでみませんか？</h2>
@@ -206,9 +274,37 @@ export default function Home() {
               少しでも「草行」の活動に心が動いたら、ぜひ一度、私たちの活動を見に来てください。
               見学、質問、いつでも大歓迎です！
             </p>
-            <Button href="ここにDiscordまたはX(Twitter)のリンク" variant="primary">
-              活動拠点（Discord）に参加する
+            <Button href="https://forms.gle/HU3k7ffCj6Wqe9me9" variant="primary">
+              見学の申し込み
             </Button>
+          </section>
+        </FadeInSection>
+
+        {/* ▼▼▼ 挿入：SNS (Connect) セクション ▼▼▼ */}
+{/* ▼▼▼ 挿入：SNS (Connect) セクション ▼▼▼ */}
+        <FadeInSection>
+          <section id="connect" className={styles.socialSection}>
+            <h2 className={styles.sectionTitle}>Connect with Us</h2>
+            <p className={styles.sectionText}>
+              日々の活動の様子や、読書会のお知らせはSNSで発信しています。
+              <br />
+              お気軽にフォローしてください。
+            </p>
+            <div className={styles.socialGrid}>
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                  // ★ ここで className を適用する
+                  className={`${styles.socialIconLink} ${link.className || ''}`}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
           </section>
         </FadeInSection>
 

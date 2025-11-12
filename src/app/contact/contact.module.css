@@ -1,0 +1,54 @@
+/* contact.module.css (修正版) */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.contactBox {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactTitle {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-primary-green);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.contactBox p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-subtext);
+  flex-grow: 1; /* ボタンが一番下に配置されるように */
+  margin-bottom: 2rem;
+}
+
+.emailLink {
+  margin-top: 1.5rem !important;
+  font-size: 1rem !important;
+}
+
+.emailLink a {
+  font-weight: bold;
+  color: var(--color-primary-green);
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
