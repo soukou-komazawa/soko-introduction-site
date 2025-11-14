@@ -1,4 +1,4 @@
-/* contact.module.css (修正版) */
+/* contact.module.css (スマホ対応強化版) */
 
 .contactGrid {
   display: grid;
@@ -34,21 +34,14 @@
   margin-bottom: 2rem;
 }
 
-.emailLink {
-  margin-top: 1.5rem !important;
-  font-size: 1rem !important;
-}
-
-.emailLink a {
-  font-weight: bold;
-  color: var(--color-primary-green);
-  text-decoration: underline;
-  margin-left: 0.5rem;
-}
-
-/* スマホ対応 */
-@media (max-width: 768px) {
+/* スマホ・タブレット対応 */
+@media (max-width: 900px) { /* 768pxから900pxに変更 */
   .contactGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* ★ 縦積みにする */
+    gap: 1.5rem; /* 隙間を少し詰める */
+  }
+
+  .contactBox {
+    padding: 2rem; /* 内側の余白を少し詰める */
   }
 }
