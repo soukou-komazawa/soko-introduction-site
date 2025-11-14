@@ -47,13 +47,18 @@ export default function Home() {
         <FadeInSection>
 <section id="philosophy" className={styles.section}>
             <h2 className={styles.sectionTitle}>「草行」という名に込めた想い</h2>
-            {/* ▼▼▼ クラス名を変更（2つのスタイルを適用） ▼▼▼ */}
-            <p className={`${styles.sectionText} ${styles.textCard}`}>
-              私たちのサークル名「草行」は、四字熟語『草行露宿（そうこうろじゅく）』に由来します。
-              草を掻き分け、時には野宿をせざるを得ない大変な道のり。
-              創作とは、時に困難と向き合い、先行きが見えない“道なき道”を行くようなものです。
-              そんな一人一人の邁進に敬意を払いつつ、その道でせめて孤独にならないようにするために、このサークルは設立されました。
-            </p>
+            
+            {/* ▼▼▼ div.philosophyCard で p.sectionText を包む ▼▼▼ */}
+            <div className={styles.philosophyCard}>
+              <p className={styles.sectionText} style={{ margin: 0, padding: 0 }}>
+                私たちのサークル名「草行」は、四字熟語『草行露宿（そうこうろじゅく）』に由来します。
+                草を掻き分け、時には野宿をせざるを得ない大変な道のり。
+                創作とは、時に困難と向き合い、先行きが見えない“道なき道”を行くようなものです。
+                そんな一人一人の邁進に敬意を払いつつ、その道でせめて孤独にならないようにするために、このサークルは設立されました。
+              </p>
+            </div>
+            {/* ▲▲▲ 変更ここまで ▲▲▲ */}
+
           </section>
         </FadeInSection>
 

@@ -1,4 +1,4 @@
-/* contact.module.css (スマホ対応強化版) */
+/* contact.module.css (スマホ対応最終版) */
 
 .contactGrid {
   display: grid;
@@ -35,13 +35,13 @@
 }
 
 /* スマホ・タブレット対応 */
-@media (max-width: 900px) { /* 768pxから900pxに変更 */
+@media (max-width: 1000px) { /* ★ 900pxから1000pxに変更 */
   .contactGrid {
     grid-template-columns: 1fr; /* ★ 縦積みにする */
-    gap: 1.5rem; /* 隙間を少し詰める */
+    gap: 1.5rem;
   }
 
   .contactBox {
-    padding: 2rem; /* 内側の余白を少し詰める */
+    padding: 2rem;
   }
 }
