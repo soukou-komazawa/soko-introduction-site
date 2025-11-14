@@ -44,16 +44,13 @@ export default function ContactPage() {
 
             {/* ▼▼▼ メールアドレスをボタンに変更 ▼▼▼ */}
             <Button
-              href="soukou.komazawa@gmail.com" // ★ あなたのメールアドレスに書き換え
+              href="mailto:soukou.komazawa@gmail.com" // ★ あなたのメールアドレスに書き換え
               variant="secondary" // サブのボタン（金）
             >
               Eメールでお問い合わせ(soukou.komazawa@gmail.com)
             </Button>
             
-            {/* ★★★
-              <small> タグは不要になったため削除しました。
-              href="mailto:..." のメールアドレスを、必ずご自身のものに書き換えてください。
-            ★★★ */}
+
 
           </div>
         </div>
